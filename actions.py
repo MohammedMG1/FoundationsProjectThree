@@ -14,13 +14,13 @@ def options():
     # your code goes here!
     print ("""Would you like to: \n 1) Create a new club. \n or: \n 2)Browse and join clubs. \n or: \n 3) View existing clubs.\n or: n\ 4) Display members of clubs. \n or: \n -1) Close application.""")
     number = input("Enter a number please ")
-    if number == 1: 
+    if number == '1': 
         create_club()
-    elif number == 2:
+    elif number == '2':
         join_clubs()
-    elif number == 3:
+    elif number == '3':
         view_clubs()
-    elif number == 4:
+    elif number == '4':
         view_club_members()
     else:
         print ("You didnt choose anything")
@@ -37,7 +37,7 @@ def create_club():
     i = 0
     #overseer = []
     for contender in population:
-        print ("[%s] %s" % (index[i], contender.name))
+        print ("[%s] %s" %(index[i], contender.name))
         for x in index:
             int(x)
         i += 1
@@ -73,7 +73,7 @@ def view_clubs():
     for club in clubs:
         print ("name: %s" %(club.name))
         print ("description: %s" %(club.description))
-        print ("members %d" %(club.members))
+        print ("members %d" %(len(club.members)))
 
     
 
@@ -104,7 +104,7 @@ def join_clubs():
     for club in clubs:
         if club.name == club_name.lower:
             club.recruit_member_list()
-            print ("%s your now member of %s" %(my_name,club.name))
+            print ("%s your now member of %s"%(my_name,club.name))
             break
     else:
         print ("no such a club that muches your input ")
@@ -112,5 +112,6 @@ def join_clubs():
 
 def application():
     introduction()
+    options()
     # your code goes here!
     
